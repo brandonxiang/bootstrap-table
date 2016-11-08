@@ -115,4 +115,11 @@
         //Call the event reorder-row
         tableBsData.trigger('reorder-row', newData);
     };
+    
+     jQuery.tableDnD.currentOrder = function() {
+        var rows = this.currentTable.rows;
+        return $.map(rows, function(val) {
+            return ($(val).data('index') + "").replace(/\s/g, '');
+        }).join('');
+    };
 })(jQuery);
